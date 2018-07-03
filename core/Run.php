@@ -1,5 +1,7 @@
 <?php
 namespace core;
+use app;
+
 /**
  * 框架启动类
  * @author 姜宇
@@ -10,7 +12,22 @@ class Run{
     private static $classArr=array();
     //启动框架的方法
     public static function run(){
+        //引入路由类获取控制器名、方法名及其他参数
         $route = new \core\lib\Route();
+        $controllerName=$route::$controller;
+        $methodName=$route::$method;
+        //拼装控制器类文件路径
+        $controllerPath=APP.'/controller/'.$controllerName.'.php';
+        //拼装控制器类名
+        $controllerClass='\app\controller\\'.$controllerName;
+        //判断是否存在控制器类不存在抛出异常，存在则引入并调用方法
+        if (is_file($controllerPath)){
+            require_once $controllerPath;
+            $classObj=new $controllerClass();
+            $classObj->$methodName();
+        }else {
+            throw new \Exception('找不到控制器：'.$controllerName);
+        }
     }
     //自动加载类
     public static function load($class){

@@ -14,11 +14,11 @@ namespace core\lib;
  */
 class Route{
     //存储控制器名称
-    private static $controller;
+    public static $controller;
     //存储控制器中方法名称
-    private static $method;
+    public static $method;
     //存取url中除控制器和方法之外的参数
-    private static $request_string_arr=array();
+    public  static $request_string_arr=array();
     public function __construct(){
         //判断当前url的路径地址存在且不为'/'
         if ($_SERVER['REQUEST_URI'] && $_SERVER['REQUEST_URI'] !='/'){
