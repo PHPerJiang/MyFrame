@@ -38,16 +38,21 @@ class Route{
             }else {
                 self::$method='index';
             }
-        }
-        //计算数组长度并将路径数组转换为键值关系的数组
-        $count=sizeof($UriPathArr) +2;
-        $i=2;
-        while ($i < $count){
-            if (isset($UriPathArr[$i+1])){
-                self::$request_string_arr[$UriPathArr[$i]]=$UriPathArr[$i+1];
+            //计算数组长度并将路径数组转换为键值关系的数组
+            $count=sizeof($UriPathArr) +2;
+            $i=2;
+            while ($i < $count){
+                if (isset($UriPathArr[$i+1])){
+                    self::$request_string_arr[$UriPathArr[$i]]=$UriPathArr[$i+1];
+                }
+                $i=$i+2;
             }
-            $i=$i+2;
+            //debug(self::$request_string_arr);
+        }else {
+            //设置controller 与method 默认都为index
+            self::$controller='index';
+            self::$method='index';
         }
-        //debug(self::$request_string_arr);
+        
     }
 }

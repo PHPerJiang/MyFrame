@@ -14,6 +14,7 @@ class Run{
     public static function run(){
         //引入路由类获取控制器名、方法名及其他参数
         $route = new \core\lib\Route();
+        \View::getInstance();
         $controllerName=$route::$controller;
         $methodName=$route::$method;
         //拼装控制器类文件路径

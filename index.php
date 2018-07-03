@@ -23,6 +23,8 @@ if (DEBUG){
 require_once CORE.'/common/function.php';
 //引入启动文件
 require_once CORE.'/Run.php';
+//引入视图引擎
+require CORE.'/lib/View.php';
 //自动加载类
 spl_autoload_register('\core\Run::load');
 //启动框架
