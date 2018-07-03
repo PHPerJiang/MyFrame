@@ -6,7 +6,7 @@
 *3.启动框架
 */
 //框架所在路径
-define('MYFRAME', str_replace('\\', '/', getcwd()));
+define('MYFRAME', str_replace('\\', '/', realpath('./')));
 //框架核心文件路径
 define('CORE', MYFRAME.'/core');
 //项目文件路径
@@ -23,5 +23,7 @@ if (DEBUG){
 require_once CORE.'/common/function.php';
 //引入启动文件
 require_once CORE.'/Run.php';
+//自动加载类
+spl_autoload_register('\core\Run::load');
 //启动框架
 \core\Run::run();
