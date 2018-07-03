@@ -10,8 +10,7 @@ class Run{
     private static $classArr=array();
     //启动框架的方法
     public static function run(){
-        $text= new \core\text();
-        $text->text1();
+        $route = new \core\lib\Route();
     }
     //自动加载类
     public static function load($class){
