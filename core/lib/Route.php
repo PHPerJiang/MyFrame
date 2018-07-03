@@ -25,7 +25,7 @@ class Route{
             //过滤路径地址首位的'/'符
             $requsetUri=trim($_SERVER['REQUEST_URI'],'/');
             //将路径地址转换为数组
-            $UriPathArr=explode('/', $requsetUri);
+            $UriPathArr=explode('/', strtolower($requsetUri));
             //如果第一个元素存在将其赋给controller,并且注销
             if (isset($UriPathArr[0])){
                 self::$controller=$UriPathArr[0];
