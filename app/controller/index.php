@@ -9,7 +9,6 @@ class index{
     //首页
     public function index(){
         debug('欢迎使用PHPer的简易框架','',false);
-
     }
     //数据库连接
     public function pdo(){
@@ -22,5 +21,12 @@ class index{
     public function smarty(){
         \View::assign(array('name'=>'PHPerJiang'));
         \View::display('index.html');
+    }
+    //配置文件
+    public function conf(){
+        $controller=\core\lib\Conf::get('controller', 'route');
+        $method=\core\lib\Conf::get('method', 'route');
+        debug($controller,'',false);
+        debug($method,'',false);
     }
 }

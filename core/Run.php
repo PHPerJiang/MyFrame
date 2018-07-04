@@ -1,6 +1,6 @@
 <?php
 namespace core;
-use app;
+
 
 /**
  * 框架启动类
@@ -14,9 +14,12 @@ class Run{
     public static function run(){
         //引入路由类获取控制器名、方法名及其他参数
         $route = new \core\lib\Route();
-        \View::getInstance();
         $controllerName=$route::$controller;
         $methodName=$route::$method;
+        //引入视图引擎
+        \View::getInstance();
+        //引入配置文件
+        $conf=new \core\lib\Conf();
         //拼装控制器类文件路径
         $controllerPath=APP.'/controller/'.$controllerName.'.php';
         //拼装控制器类名

@@ -8,9 +8,9 @@ namespace core\lib;
  */
 class Db{
     //配置
-    private static $dsn='mysql:host=localhost;dbname=db';
-    private static $user='root';
-    private static $password='';
+    private static $dsn;
+    private static $user;
+    private static $password;
     //句柄
     private static $pdo;
     //防止通过new方法实例化
@@ -19,6 +19,9 @@ class Db{
     }
     //获取实例
     public static function getInstance(){
+        self::$dsn = \core\lib\Conf::get('dsn', 'db');
+        self::$user = \core\lib\Conf::get('user', 'db');
+        self::$password = \core\lib\Conf::get('password', 'db');
         return self::connect();
     }
     //获取数据条数

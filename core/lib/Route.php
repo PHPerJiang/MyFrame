@@ -36,7 +36,7 @@ class Route{
                 self::$method=$UriPathArr[1];
                 unset($UriPathArr[1]);
             }else {
-                self::$method='index';
+                self::$method=\core\lib\Conf::get('method', 'route');
             }
             //计算数组长度并将路径数组转换为键值关系的数组
             $count=sizeof($UriPathArr) +2;
@@ -50,8 +50,8 @@ class Route{
             //debug(self::$request_string_arr);
         }else {
             //设置controller 与method 默认都为index
-            self::$controller='index';
-            self::$method='index';
+            self::$controller=\core\lib\Conf::get('controller', 'route');
+            self::$method=\core\lib\Conf::get('method', 'route');
         }
         
     }
