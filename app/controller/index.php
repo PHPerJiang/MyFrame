@@ -23,4 +23,8 @@ class index{
         \View::assign(array('name'=>'PHPerJiang'));
         \View::display('index.html');
     }
+    //日志
+    public function log(){
+        new \core\lib\Log();
+    }
 }
