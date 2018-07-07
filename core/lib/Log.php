@@ -7,16 +7,16 @@ namespace core\lib;
  */
 class Log{
     /**
-     * 构造方法创建日期文件夹
+     * 日志文件初始化，创建日志文件夹
+     * @param string $log
      */
-    public function __construct(){
-        $dirName=MYFRAME.'/log/'.date('Y-m-d',time());
+    public static function init(){
+        $dirName=MYFRAME.'/'.$log;
         if (!file_exists($dirName)){
           mkdir($dirName,0777,true);
-           echo '文件创建成功';
         }
     }
-    public static function set($string){
+    public static function log($message, $file){
         
     }
 }
