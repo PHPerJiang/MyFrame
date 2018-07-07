@@ -16,10 +16,15 @@ class Run{
         $route = new \core\lib\Route();
         $controllerName=$route::$controller;
         $methodName=$route::$method;
+<<<<<<< HEAD
         //引入视图引擎
         \View::getInstance();
         //引入配置文件
         $conf=new \core\lib\Conf();
+=======
+        //实例化视图引擎
+        \View::getInstance();
+>>>>>>> dev
         //拼装控制器类文件路径
         $controllerPath=APP.'/controller/'.$controllerName.'.php';
         //拼装控制器类名
@@ -32,6 +37,8 @@ class Run{
         }else {
             throw new \Exception('找不到控制器：'.$controllerName);
         }
+        //初始化日志类,创建日志文件夹
+        \core\lib\Log::init();
     }
     //自动加载类
     public static function load($class){
