@@ -22,17 +22,12 @@ class index{
         \View::assign(array('name'=>'PHPerJiang'));
         \View::display('index.html');
     }
-<<<<<<< HEAD
+
     //配置文件
     public function conf(){
         $controller=\core\lib\Conf::get('controller', 'route');
         $method=\core\lib\Conf::get('method', 'route');
         debug($controller,'',false);
         debug($method,'',false);
-=======
-    //日志
-    public function log(){
-        new \core\lib\Log();
->>>>>>> dev
     }
 }

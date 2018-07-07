@@ -11,12 +11,9 @@ class Log{
      * @param string $log
      */
     public static function init(){
-        $dirName=MYFRAME.'/'.$log;
+        $dirName=MYFRAME.'/'.\core\lib\Conf::get('logFileName', 'log');
         if (!file_exists($dirName)){
           mkdir($dirName,0777,true);
         }
-    }
-    public static function log($message, $file){
-        
     }
 }

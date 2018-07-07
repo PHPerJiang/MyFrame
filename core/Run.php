@@ -16,15 +16,10 @@ class Run{
         $route = new \core\lib\Route();
         $controllerName=$route::$controller;
         $methodName=$route::$method;
-<<<<<<< HEAD
         //引入视图引擎
         \View::getInstance();
         //引入配置文件
         $conf=new \core\lib\Conf();
-=======
-        //实例化视图引擎
-        \View::getInstance();
->>>>>>> dev
         //拼装控制器类文件路径
         $controllerPath=APP.'/controller/'.$controllerName.'.php';
         //拼装控制器类名
