@@ -16,6 +16,8 @@ class Run{
         $route = new \core\lib\Route();
         $controllerName=$route::$controller;
         $methodName=$route::$method;
+        //初始化日志类,创建日志文件夹
+        \core\lib\Log::init();
         //引入视图引擎
         \View::getInstance();
         //引入配置文件
@@ -32,8 +34,6 @@ class Run{
         }else {
             throw new \Exception('找不到控制器：'.$controllerName);
         }
-        //初始化日志类,创建日志文件夹
-        \core\lib\Log::init();
     }
     //自动加载类
     public static function load($class){

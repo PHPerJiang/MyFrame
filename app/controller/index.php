@@ -1,5 +1,7 @@
 <?php
 namespace app\controller;
+use core\lib\Log;
+
 /**
  * 测试控制器
  * @author 姜宇
@@ -29,5 +31,10 @@ class index{
         $method=\core\lib\Conf::get('method', 'route');
         debug($controller,'',false);
         debug($method,'',false);
+    }
+    //日志文件
+    public function log(){
+        \core\lib\Log::log($_SERVER['REMOTE_ADDR']);
+        debug(file_get_contents(MYFRAME.'/log/'.date('Y-m-d').'/log.txt'));
     }
 }
