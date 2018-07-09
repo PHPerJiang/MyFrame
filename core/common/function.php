@@ -13,3 +13,8 @@ function debug($var, $dump=false, $exit=true){
     if($exit)
         exit;
 }
+
+/*通过客户端信息及客户端ip连接uniqid使用md5加密生成唯一标识*/
+function getUniqueId(){
+    return md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'].uniqid(mt_rand(),true));
+}
